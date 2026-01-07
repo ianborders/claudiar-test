@@ -1,0 +1,616 @@
+/* Matrix Terminal Calculator Styles */
+
+[data-theme="matrix"] {
+    --matrix-green: #00ff41;
+    --matrix-dark-green: #008f11;
+    --matrix-bright-green: #39ff14;
+    --matrix-bg: #0a0a0a;
+    --matrix-terminal-bg: #0d1117;
+    --matrix-border: #003300;
+    --matrix-glow: rgba(0, 255, 65, 0.6);
+    --matrix-code-rain: rgba(0, 255, 65, 0.1);
+}
+
+/* Override body for matrix theme */
+[data-theme="matrix"] body {
+    font-family: 'Courier New', Courier, monospace;
+    background: var(--matrix-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="matrix"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 65, 0.03) 2px,
+            rgba(0, 255, 65, 0.03) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+[data-theme="matrix"] body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Matrix Digital Rain Animation */
+@keyframes matrixRain {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+@keyframes matrixFlicker {
+    0%, 100% { opacity: 1; }
+    92% { opacity: 1; }
+    93% { opacity: 0.8; }
+    94% { opacity: 1; }
+    96% { opacity: 0.9; }
+    97% { opacity: 1; }
+}
+
+@keyframes terminalBlink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@keyframes matrixPulse {
+    0%, 100% {
+        text-shadow: 0 0 5px var(--matrix-green), 0 0 10px var(--matrix-green);
+    }
+    50% {
+        text-shadow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green), 0 0 30px var(--matrix-bright-green);
+    }
+}
+
+/* Matrix scanlines - terminal CRT effect */
+[data-theme="matrix"] .scanlines {
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 1px,
+        rgba(0, 0, 0, 0.3) 1px,
+        rgba(0, 0, 0, 0.3) 2px
+    );
+    animation: matrixFlicker 5s infinite;
+}
+
+/* Matrix Cabinet - Terminal Window */
+[data-theme="matrix"] .arcade-cabinet {
+    background: var(--matrix-terminal-bg);
+    border: 2px solid var(--matrix-dark-green);
+    border-radius: 0;
+    box-shadow:
+        0 0 20px var(--matrix-glow),
+        0 0 40px rgba(0, 255, 65, 0.2),
+        inset 0 0 60px rgba(0, 255, 65, 0.05);
+    position: relative;
+}
+
+[data-theme="matrix"] .arcade-cabinet::before {
+    content: '[ TERMINAL v2.049 ]';
+    position: absolute;
+    top: -25px;
+    left: 10px;
+    font-size: 10px;
+    color: var(--matrix-dark-green);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+[data-theme="matrix"] .arcade-cabinet::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 255, 65, 0.03) 0%,
+        transparent 50%,
+        rgba(0, 255, 65, 0.03) 100%
+    );
+    pointer-events: none;
+}
+
+/* Matrix Marquee - Terminal Header */
+[data-theme="matrix"] .marquee {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--matrix-dark-green);
+    border-radius: 0;
+    padding: 15px 20px;
+    position: relative;
+    box-shadow: inset 0 0 30px rgba(0, 255, 65, 0.1);
+}
+
+[data-theme="matrix"] .marquee::before {
+    content: '>';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--matrix-green);
+    font-size: 20px;
+    animation: terminalBlink 1s step-end infinite;
+}
+
+[data-theme="matrix"] .marquee::after {
+    content: '[ SYSTEM ACTIVE ]';
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 8px;
+    color: var(--matrix-dark-green);
+    font-family: 'Courier New', monospace;
+}
+
+[data-theme="matrix"] .marquee h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--matrix-green);
+    text-shadow:
+        0 0 5px var(--matrix-green),
+        0 0 10px var(--matrix-green),
+        0 0 20px var(--matrix-glow);
+    animation: matrixPulse 2s ease-in-out infinite;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Matrix Marquee Lights - Status Indicators */
+[data-theme="matrix"] .marquee-lights {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+[data-theme="matrix"] .light {
+    width: 6px;
+    height: 6px;
+    border-radius: 0;
+    background: var(--matrix-green);
+    box-shadow: 0 0 5px var(--matrix-green);
+    animation: terminalBlink 2s step-end infinite;
+}
+
+[data-theme="matrix"] .light:nth-child(1) { animation-delay: 0s; }
+[data-theme="matrix"] .light:nth-child(2) { animation-delay: 0.4s; }
+[data-theme="matrix"] .light:nth-child(3) { animation-delay: 0.8s; }
+[data-theme="matrix"] .light:nth-child(4) { animation-delay: 1.2s; }
+[data-theme="matrix"] .light:nth-child(5) { animation-delay: 1.6s; }
+
+/* Matrix Screen Bezel - Terminal Frame */
+[data-theme="matrix"] .screen-bezel {
+    background: #000;
+    border: 1px solid var(--matrix-dark-green);
+    border-radius: 0;
+    padding: 2px;
+    margin-bottom: 15px;
+    box-shadow:
+        inset 0 0 30px rgba(0, 255, 65, 0.1),
+        0 0 10px rgba(0, 255, 65, 0.2);
+    position: relative;
+}
+
+[data-theme="matrix"] .screen-bezel::before {
+    content: 'INPUT_STREAM://';
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 8px;
+    color: var(--matrix-dark-green);
+    font-family: 'Courier New', monospace;
+}
+
+/* Matrix Screen */
+[data-theme="matrix"] .screen {
+    background: rgba(0, 10, 0, 0.95);
+    border: 1px solid var(--matrix-border);
+    border-radius: 0;
+    padding: 25px 20px;
+    position: relative;
+}
+
+[data-theme="matrix"] .screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(90deg, transparent 50%, rgba(0, 255, 65, 0.02) 50%);
+    background-size: 2px 100%;
+    pointer-events: none;
+}
+
+/* Matrix Display */
+[data-theme="matrix"] .display-row {
+    border-bottom: 1px dashed var(--matrix-border);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+[data-theme="matrix"] .label {
+    color: var(--matrix-dark-green);
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--matrix-dark-green);
+}
+
+[data-theme="matrix"] .pixel-input {
+    background: rgba(0, 20, 0, 0.8);
+    border: 1px solid var(--matrix-dark-green);
+    border-radius: 0;
+    padding: 10px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--matrix-green);
+    text-shadow: 0 0 5px var(--matrix-green);
+    box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+[data-theme="matrix"] .pixel-input:focus {
+    border-color: var(--matrix-bright-green);
+    color: var(--matrix-bright-green);
+    text-shadow: 0 0 10px var(--matrix-bright-green);
+    box-shadow:
+        0 0 10px rgba(57, 255, 20, 0.3),
+        inset 0 0 15px rgba(57, 255, 20, 0.1);
+}
+
+/* Matrix Result Display */
+[data-theme="matrix"] .result-display {
+    background: rgba(0, 30, 0, 0.9);
+    border: 1px solid var(--matrix-green);
+    border-radius: 0;
+    padding: 15px;
+    margin-top: 15px;
+    position: relative;
+    box-shadow:
+        0 0 20px rgba(0, 255, 65, 0.2),
+        inset 0 0 30px rgba(0, 255, 65, 0.1);
+}
+
+[data-theme="matrix"] .result-display::before {
+    content: '>> OUTPUT:';
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    background: rgba(0, 10, 0, 0.95);
+    padding: 0 5px;
+    font-size: 8px;
+    color: var(--matrix-dark-green);
+    font-family: 'Courier New', monospace;
+}
+
+[data-theme="matrix"] .result-label {
+    color: var(--matrix-dark-green);
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--matrix-dark-green);
+    letter-spacing: 2px;
+}
+
+[data-theme="matrix"] .result-value {
+    color: var(--matrix-bright-green);
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow:
+        0 0 5px var(--matrix-green),
+        0 0 10px var(--matrix-green),
+        0 0 20px var(--matrix-glow);
+    animation: matrixPulse 1.5s ease-in-out infinite;
+}
+
+/* Matrix Control Panel */
+[data-theme="matrix"] .control-panel {
+    background: rgba(0, 15, 0, 0.6);
+    border: 1px solid var(--matrix-border);
+    border-radius: 0;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+[data-theme="matrix"] .control-panel::before {
+    content: '// OPERATIONS';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: var(--matrix-terminal-bg);
+    padding: 0 8px;
+    font-size: 10px;
+    color: var(--matrix-dark-green);
+    font-family: 'Courier New', monospace;
+}
+
+/* Matrix Buttons */
+[data-theme="matrix"] .arcade-btn {
+    font-family: 'Courier New', monospace;
+    border: 1px solid var(--matrix-dark-green);
+    border-radius: 0;
+    background: rgba(0, 20, 0, 0.8);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s ease;
+}
+
+[data-theme="matrix"] .arcade-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 255, 65, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+[data-theme="matrix"] .arcade-btn:hover::before {
+    opacity: 1;
+}
+
+[data-theme="matrix"] .arcade-btn:hover {
+    border-color: var(--matrix-green);
+    box-shadow:
+        0 0 15px rgba(0, 255, 65, 0.4),
+        inset 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+[data-theme="matrix"] .arcade-btn:active {
+    transform: scale(0.95);
+    box-shadow:
+        0 0 5px rgba(0, 255, 65, 0.3),
+        inset 0 0 20px rgba(0, 255, 65, 0.2);
+}
+
+[data-theme="matrix"] .btn-top {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--matrix-green);
+    text-shadow: 0 0 5px var(--matrix-green);
+}
+
+[data-theme="matrix"] .btn-label {
+    font-size: 8px;
+    color: var(--matrix-dark-green);
+    letter-spacing: 1px;
+}
+
+/* Matrix Button Colors - All green variants */
+[data-theme="matrix"] .op-btn:nth-child(1) {
+    border-color: var(--matrix-green);
+}
+[data-theme="matrix"] .op-btn:nth-child(1):hover {
+    box-shadow: 0 0 20px var(--matrix-glow), inset 0 0 15px rgba(0, 255, 65, 0.15);
+}
+
+[data-theme="matrix"] .op-btn:nth-child(2) {
+    border-color: var(--matrix-dark-green);
+}
+[data-theme="matrix"] .op-btn:nth-child(2) .btn-top { color: var(--matrix-dark-green); text-shadow: 0 0 5px var(--matrix-dark-green); }
+[data-theme="matrix"] .op-btn:nth-child(2):hover {
+    border-color: var(--matrix-green);
+    box-shadow: 0 0 20px rgba(0, 143, 17, 0.5);
+}
+[data-theme="matrix"] .op-btn:nth-child(2):hover .btn-top { color: var(--matrix-green); }
+
+[data-theme="matrix"] .op-btn:nth-child(3) {
+    border-color: var(--matrix-bright-green);
+}
+[data-theme="matrix"] .op-btn:nth-child(3) .btn-top { color: var(--matrix-bright-green); text-shadow: 0 0 5px var(--matrix-bright-green); }
+[data-theme="matrix"] .op-btn:nth-child(3):hover {
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+}
+
+[data-theme="matrix"] .op-btn:nth-child(4) {
+    border-color: var(--matrix-green);
+}
+[data-theme="matrix"] .op-btn:nth-child(4):hover {
+    box-shadow: 0 0 20px var(--matrix-glow);
+}
+
+/* Matrix Power Button */
+[data-theme="matrix"] .power-btn {
+    border-color: var(--matrix-bright-green);
+    background: rgba(0, 40, 0, 0.8);
+    border-radius: 0;
+}
+[data-theme="matrix"] .power-btn .btn-top {
+    color: var(--matrix-bright-green);
+    text-shadow: 0 0 10px var(--matrix-bright-green);
+}
+[data-theme="matrix"] .power-btn:hover {
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.5), inset 0 0 20px rgba(57, 255, 20, 0.1);
+}
+
+/* Matrix Clear Button */
+[data-theme="matrix"] .clear-btn {
+    background: rgba(40, 0, 0, 0.8);
+    border: 1px solid #ff0000;
+    border-radius: 0;
+}
+[data-theme="matrix"] .clear-btn .btn-top {
+    color: #ff0000;
+    text-shadow: 0 0 5px #ff0000;
+    font-size: 14px;
+}
+[data-theme="matrix"] .clear-btn:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4), inset 0 0 15px rgba(255, 0, 0, 0.1);
+}
+
+/* Matrix Coin Slot - System Status */
+[data-theme="matrix"] .coin-slot {
+    text-align: center;
+    padding: 12px;
+    border-top: 1px dashed var(--matrix-border);
+}
+
+[data-theme="matrix"] .slot-label {
+    color: var(--matrix-dark-green);
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px var(--matrix-dark-green);
+}
+
+[data-theme="matrix"] .slot-label::before {
+    content: '[ ';
+}
+
+[data-theme="matrix"] .slot-label::after {
+    content: ' ]';
+}
+
+[data-theme="matrix"] .slot {
+    width: 60px;
+    height: 3px;
+    background: var(--matrix-dark-green);
+    border: none;
+    border-radius: 0;
+    margin: 8px auto 0;
+    box-shadow: 0 0 10px var(--matrix-dark-green);
+}
+
+/* Matrix Credits */
+[data-theme="matrix"] .credits {
+    color: var(--matrix-dark-green);
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+[data-theme="matrix"] .credits p {
+    text-shadow: 0 0 5px var(--matrix-dark-green);
+}
+
+[data-theme="matrix"] .credits p::before {
+    content: '> ';
+}
+
+[data-theme="matrix"] .credits .blink {
+    color: var(--matrix-green);
+    text-shadow: 0 0 10px var(--matrix-green);
+    animation: terminalBlink 1s step-end infinite;
+}
+
+/* Matrix Error State */
+[data-theme="matrix"] .error {
+    color: #ff0000 !important;
+    text-shadow:
+        0 0 5px #ff0000,
+        0 0 10px #ff0000 !important;
+    animation: matrixError 0.3s ease-in-out;
+}
+
+@keyframes matrixError {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+}
+
+/* Matrix Success State */
+[data-theme="matrix"] .success {
+    animation: matrixSuccess 0.4s ease-out;
+}
+
+@keyframes matrixSuccess {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.5); text-shadow: 0 0 30px var(--matrix-bright-green); }
+    100% { filter: brightness(1); }
+}
+
+/* Matrix Theme Switcher */
+[data-theme="matrix"] .theme-switcher {
+    font-family: 'Courier New', monospace;
+    background: var(--matrix-terminal-bg);
+    border: 1px solid var(--matrix-green);
+    border-radius: 0;
+    box-shadow:
+        0 0 15px rgba(0, 255, 65, 0.3),
+        inset 0 0 10px rgba(0, 255, 65, 0.05);
+}
+
+[data-theme="matrix"] .theme-switcher:hover {
+    box-shadow:
+        0 0 25px rgba(0, 255, 65, 0.5),
+        inset 0 0 15px rgba(0, 255, 65, 0.1);
+    transform: translateY(-2px);
+}
+
+[data-theme="matrix"] .theme-switcher:active {
+    transform: scale(0.95);
+    box-shadow:
+        0 0 10px rgba(0, 255, 65, 0.3),
+        inset 0 0 10px rgba(0, 255, 65, 0.05);
+}
+
+[data-theme="matrix"] .theme-label {
+    color: var(--matrix-green);
+    text-shadow: 0 0 5px var(--matrix-green);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Responsive adjustments for matrix */
+@media (max-width: 500px) {
+    [data-theme="matrix"] .marquee h1 {
+        font-size: 16px;
+    }
+
+    [data-theme="matrix"] .arcade-btn {
+        width: 55px;
+        height: 55px;
+    }
+
+    [data-theme="matrix"] .btn-top {
+        font-size: 16px;
+    }
+
+    [data-theme="matrix"] .pixel-input {
+        font-size: 14px;
+    }
+
+    [data-theme="matrix"] .result-value {
+        font-size: 20px;
+    }
+
+    [data-theme="matrix"] .arcade-cabinet::before {
+        display: none;
+    }
+}

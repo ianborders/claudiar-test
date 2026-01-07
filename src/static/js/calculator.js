@@ -24,8 +24,16 @@ document.addEventListener('DOMContentLoaded', function() {
             icon: '🌆',
             label: 'CYBER',
             title: 'CYBER CALC'
+        },
+        matrix: {
+            icon: '💻',
+            label: 'MATRIX',
+            title: 'MATRIX CALC'
         }
     };
+
+    // Theme cycle order
+    const themeOrder = ['arcade', 'cyberpunk', 'matrix'];
 
     // Get current theme from localStorage or default to arcade
     let currentTheme = localStorage.getItem('calculatorTheme') || 'arcade';
@@ -45,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Toggle theme on button click
     themeSwitcher.addEventListener('click', function() {
         playButtonSound();
-        const newTheme = currentTheme === 'arcade' ? 'cyberpunk' : 'arcade';
+        const currentIndex = themeOrder.indexOf(currentTheme);
+        const newTheme = themeOrder[(currentIndex + 1) % themeOrder.length];
         applyTheme(newTheme);
     });
 
@@ -238,7 +247,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.target !== inputA && e.target !== inputB) {
                     e.preventDefault();
                     playButtonSound();
-                    const newTheme = currentTheme === 'arcade' ? 'cyberpunk' : 'arcade';
+                    const currentIndex = themeOrder.indexOf(currentTheme);
+                    const newTheme = themeOrder[(currentIndex + 1) % themeOrder.length];
                     applyTheme(newTheme);
                 }
                 break;
