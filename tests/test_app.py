@@ -22,7 +22,7 @@ class TestIndex:
     def test_index_returns_html(self, client):
         response = client.get('/')
         assert response.status_code == 200
-        assert b'ARCADE CALC' in response.data
+        assert b'Claudear Testing' in response.data
 
     def test_index_contains_buttons(self, client):
         response = client.get('/')
