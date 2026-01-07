@@ -539,6 +539,12 @@
     animation: cyberBlink 1.5s ease-in-out infinite;
 }
 
+[data-theme="cyberpunk"] .credits .made-with-love {
+    margin-top: 15px;
+    color: var(--cyber-pink);
+    text-shadow: 0 0 10px var(--cyber-pink);
+}
+
 /* Cyberpunk Error State */
 [data-theme="cyberpunk"] .error {
     color: var(--cyber-yellow) !important;

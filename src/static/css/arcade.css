@@ -425,6 +425,12 @@ body {
     text-shadow: 0 0 10px var(--neon-yellow);
 }
 
+.credits .made-with-love {
+    margin-top: 15px;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
 @keyframes textBlink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }

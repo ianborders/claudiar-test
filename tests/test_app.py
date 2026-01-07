@@ -62,6 +62,12 @@ class TestIndex:
         response = client.get('/')
         assert b'id="calc-title"' in response.data
 
+    def test_index_contains_footer(self, client):
+        response = client.get('/')
+        assert b'made-with-love' in response.data
+        assert 'made with'.encode() in response.data
+        assert b'Ian Borders' in response.data
+
 
 class TestCalculateEndpoint:
     def test_add_operation(self, client):
