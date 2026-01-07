@@ -215,29 +215,6 @@
     color: var(--min-text);
 }
 
-/* Minimalist Power Button */
-[data-theme="minimalist"] .power-btn {
-    background: var(--min-accent);
-    border-radius: 12px;
-    box-shadow: none;
-}
-
-[data-theme="minimalist"] .power-btn .btn-top {
-    color: white;
-}
-
-[data-theme="minimalist"] .power-btn .btn-label {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-[data-theme="minimalist"] .power-btn:hover {
-    background: #0052cc;
-}
-
-[data-theme="minimalist"] .power-btn:active {
-    background: #0047b3;
-}
-
 /* Minimalist Clear Button */
 [data-theme="minimalist"] .clear-btn {
     background: var(--min-bg);

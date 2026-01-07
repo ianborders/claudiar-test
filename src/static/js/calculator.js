@@ -219,11 +219,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 calculate('divide');
                 playButtonSound();
                 break;
-            case '^':
-                e.preventDefault();
-                calculate('power');
-                playButtonSound();
-                break;
             case 'Escape':
             case 'c':
             case 'C':

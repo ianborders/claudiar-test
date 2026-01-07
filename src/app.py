@@ -1,7 +1,7 @@
 """Flask web application for the calculator with 8-bit arcade UI."""
 
 from flask import Flask, render_template, request, jsonify
-from calculator import add, subtract, multiply, divide, power
+from calculator import add, subtract, multiply, divide
 
 app = Flask(__name__)
 
@@ -27,7 +27,6 @@ def calculate():
             "subtract": subtract,
             "multiply": multiply,
             "divide": divide,
-            "power": power,
         }
 
         if operation not in operations:

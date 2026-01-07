@@ -358,16 +358,6 @@ body {
         0 0 20px rgba(0, 204, 68, 0.5);
 }
 
-.power-btn {
-    background: var(--btn-purple);
-    box-shadow:
-        0 6px 0 #6600aa,
-        0 0 20px rgba(153, 0, 255, 0.5);
-    grid-column: 1 / 3;
-    width: 100%;
-    border-radius: 35px;
-}
-
 .clear-btn {
     background: linear-gradient(180deg, #ff4444 0%, #cc0000 100%);
     box-shadow:

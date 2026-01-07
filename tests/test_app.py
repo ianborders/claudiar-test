@@ -30,7 +30,6 @@ class TestIndex:
         assert b'data-op="subtract"' in response.data
         assert b'data-op="multiply"' in response.data
         assert b'data-op="divide"' in response.data
-        assert b'data-op="power"' in response.data
 
     def test_index_contains_theme_switcher(self, client):
         response = client.get('/')
@@ -105,15 +104,6 @@ class TestCalculateEndpoint:
         })
         assert response.status_code == 200
         assert response.json['result'] == 5
-
-    def test_power_operation(self, client):
-        response = client.post('/calculate', json={
-            'a': 2,
-            'b': 8,
-            'operation': 'power'
-        })
-        assert response.status_code == 200
-        assert response.json['result'] == 256
 
     def test_divide_by_zero_returns_error(self, client):
         response = client.post('/calculate', json={
