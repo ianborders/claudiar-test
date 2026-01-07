@@ -50,6 +50,10 @@ class TestIndex:
         response = client.get('/')
         assert b'matrix.css' in response.data
 
+    def test_index_loads_minimalist_css(self, client):
+        response = client.get('/')
+        assert b'minimalist.css' in response.data
+
     def test_index_loads_orbitron_font(self, client):
         response = client.get('/')
         assert b'Orbitron' in response.data
