@@ -468,17 +468,6 @@
 [data-theme="cyberpunk"] .op-btn:nth-child(4) .btn-label { color: rgba(211, 0, 197, 0.7); }
 [data-theme="cyberpunk"] .op-btn:nth-child(4):hover { box-shadow: 0 0 30px var(--cyber-purple), inset 0 0 20px rgba(211, 0, 197, 0.2); }
 
-/* Cyberpunk Power Button */
-[data-theme="cyberpunk"] .power-btn {
-    border-color: var(--cyber-pink);
-    background: linear-gradient(90deg, rgba(255, 42, 109, 0.2), rgba(211, 0, 197, 0.2));
-    box-shadow: 0 0 20px rgba(255, 42, 109, 0.4);
-    border-radius: 0;
-    clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
-}
-[data-theme="cyberpunk"] .power-btn .btn-top { color: var(--cyber-pink); text-shadow: 0 0 15px var(--cyber-pink); }
-[data-theme="cyberpunk"] .power-btn:hover { box-shadow: 0 0 40px var(--cyber-pink), inset 0 0 30px rgba(255, 42, 109, 0.2); }
-
 /* Cyberpunk Clear Button */
 [data-theme="cyberpunk"] .clear-btn {
     background: linear-gradient(90deg, rgba(255, 42, 109, 0.3), rgba(249, 240, 2, 0.3));

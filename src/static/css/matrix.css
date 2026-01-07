@@ -443,20 +443,6 @@
     box-shadow: 0 0 20px var(--matrix-glow);
 }
 
-/* Matrix Power Button */
-[data-theme="matrix"] .power-btn {
-    border-color: var(--matrix-bright-green);
-    background: rgba(0, 40, 0, 0.8);
-    border-radius: 0;
-}
-[data-theme="matrix"] .power-btn .btn-top {
-    color: var(--matrix-bright-green);
-    text-shadow: 0 0 10px var(--matrix-bright-green);
-}
-[data-theme="matrix"] .power-btn:hover {
-    box-shadow: 0 0 25px rgba(57, 255, 20, 0.5), inset 0 0 20px rgba(57, 255, 20, 0.1);
-}
-
 /* Matrix Clear Button */
 [data-theme="matrix"] .clear-btn {
     background: rgba(40, 0, 0, 0.8);
