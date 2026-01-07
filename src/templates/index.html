@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCADE CALC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/arcade.css') }}">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="arcade-cabinet">
+        <div class="cabinet-top">
+            <div class="marquee">
+                <h1>ARCADE CALC</h1>
+                <div class="marquee-lights">
+                    <span class="light"></span>
+                    <span class="light"></span>
+                    <span class="light"></span>
+                    <span class="light"></span>
+                    <span class="light"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen-bezel">
+            <div class="screen">
+                <div class="display">
+                    <div class="display-row">
+                        <span class="label">A:</span>
+                        <input type="text" id="input-a" class="pixel-input" value="0" autocomplete="off">
+                    </div>
+                    <div class="display-row">
+                        <span class="label">B:</span>
+                        <input type="text" id="input-b" class="pixel-input" value="0" autocomplete="off">
+                    </div>
+                    <div class="result-display">
+                        <span class="result-label">RESULT:</span>
+                        <span id="result" class="result-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="button-grid">
+                <button class="arcade-btn op-btn" data-op="add">
+                    <span class="btn-top">+</span>
+                    <span class="btn-label">ADD</span>
+                </button>
+                <button class="arcade-btn op-btn" data-op="subtract">
+                    <span class="btn-top">-</span>
+                    <span class="btn-label">SUB</span>
+                </button>
+                <button class="arcade-btn op-btn" data-op="multiply">
+                    <span class="btn-top">x</span>
+                    <span class="btn-label">MUL</span>
+                </button>
+                <button class="arcade-btn op-btn" data-op="divide">
+                    <span class="btn-top">/</span>
+                    <span class="btn-label">DIV</span>
+                </button>
+                <button class="arcade-btn op-btn power-btn" data-op="power">
+                    <span class="btn-top">^</span>
+                    <span class="btn-label">POW</span>
+                </button>
+            </div>
+            <button class="arcade-btn clear-btn" id="clear-btn">
+                <span class="btn-top">CLR</span>
+            </button>
+        </div>
+
+        <div class="coin-slot">
+            <div class="slot-label">INSERT COIN</div>
+            <div class="slot"></div>
+        </div>
+    </div>
+
+    <div class="credits">
+        <p>CREDITS: INFINITE</p>
+        <p class="blink">PRESS ANY BUTTON TO CALCULATE</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+</body>
+</html>
