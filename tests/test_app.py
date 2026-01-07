@@ -46,6 +46,10 @@ class TestIndex:
         response = client.get('/')
         assert b'cyberpunk.css' in response.data
 
+    def test_index_loads_matrix_css(self, client):
+        response = client.get('/')
+        assert b'matrix.css' in response.data
+
     def test_index_loads_orbitron_font(self, client):
         response = client.get('/')
         assert b'Orbitron' in response.data
