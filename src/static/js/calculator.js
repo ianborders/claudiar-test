@@ -29,11 +29,16 @@ document.addEventListener('DOMContentLoaded', function() {
             icon: '💻',
             label: 'MATRIX',
             title: 'MATRIX CALC'
+        },
+        minimalist: {
+            icon: '✨',
+            label: 'MODERN',
+            title: 'Calculator'
         }
     };
 
     // Theme cycle order
-    const themeOrder = ['arcade', 'cyberpunk', 'matrix'];
+    const themeOrder = ['arcade', 'cyberpunk', 'matrix', 'minimalist'];
 
     // Get current theme from localStorage or default to arcade
     let currentTheme = localStorage.getItem('calculatorTheme') || 'arcade';
