@@ -130,7 +130,7 @@
 
 [data-theme="cyberpunk"] .marquee h1::before,
 [data-theme="cyberpunk"] .marquee h1::after {
-    content: 'CYBER CALC';
+    content: attr(data-text);
     position: absolute;
     top: 0;
     left: 0;
