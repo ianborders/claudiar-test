@@ -11,29 +11,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeSwitcher = document.getElementById('theme-switcher');
     const themeIcon = themeSwitcher.querySelector('.theme-icon');
     const themeLabel = themeSwitcher.querySelector('.theme-label');
-    const calcTitle = document.getElementById('calc-title');
 
     // Theme configuration
     const themes = {
         arcade: {
             icon: '🎮',
-            label: 'ARCADE',
-            title: 'ARCADE CALC'
+            label: 'ARCADE'
         },
         cyberpunk: {
             icon: '🌆',
-            label: 'CYBER',
-            title: 'CYBER CALC'
+            label: 'CYBER'
         },
         matrix: {
             icon: '💻',
-            label: 'MATRIX',
-            title: 'MATRIX CALC'
+            label: 'MATRIX'
         },
         minimalist: {
             icon: '✨',
-            label: 'MODERN',
-            title: 'Calculator'
+            label: 'MODERN'
         }
     };
 
@@ -50,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const config = themes[theme];
         themeIcon.textContent = config.icon;
         themeLabel.textContent = config.label;
-        calcTitle.textContent = config.title;
+        // Title "Claudear Testing" is kept constant across all themes
         localStorage.setItem('calculatorTheme', theme);
         currentTheme = theme;
     }
