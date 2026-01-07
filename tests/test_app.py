@@ -32,6 +32,28 @@ class TestIndex:
         assert b'data-op="divide"' in response.data
         assert b'data-op="power"' in response.data
 
+    def test_index_contains_theme_switcher(self, client):
+        response = client.get('/')
+        assert b'theme-switcher' in response.data
+        assert b'theme-icon' in response.data
+        assert b'theme-label' in response.data
+
+    def test_index_has_data_theme_attribute(self, client):
+        response = client.get('/')
+        assert b'data-theme="arcade"' in response.data
+
+    def test_index_loads_cyberpunk_css(self, client):
+        response = client.get('/')
+        assert b'cyberpunk.css' in response.data
+
+    def test_index_loads_orbitron_font(self, client):
+        response = client.get('/')
+        assert b'Orbitron' in response.data
+
+    def test_index_has_calc_title_id(self, client):
+        response = client.get('/')
+        assert b'id="calc-title"' in response.data
+
 
 class TestCalculateEndpoint:
     def test_add_operation(self, client):

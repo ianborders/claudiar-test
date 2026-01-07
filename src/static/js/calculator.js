@@ -8,6 +8,46 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultDisplay = document.getElementById('result');
     const operationButtons = document.querySelectorAll('.op-btn');
     const clearButton = document.getElementById('clear-btn');
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const themeIcon = themeSwitcher.querySelector('.theme-icon');
+    const themeLabel = themeSwitcher.querySelector('.theme-label');
+    const calcTitle = document.getElementById('calc-title');
+
+    // Theme configuration
+    const themes = {
+        arcade: {
+            icon: '🎮',
+            label: 'ARCADE',
+            title: 'ARCADE CALC'
+        },
+        cyberpunk: {
+            icon: '🌆',
+            label: 'CYBER',
+            title: 'CYBER CALC'
+        }
+    };
+
+    // Get current theme from localStorage or default to arcade
+    let currentTheme = localStorage.getItem('calculatorTheme') || 'arcade';
+    applyTheme(currentTheme);
+
+    // Theme switching function
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        const config = themes[theme];
+        themeIcon.textContent = config.icon;
+        themeLabel.textContent = config.label;
+        calcTitle.textContent = config.title;
+        localStorage.setItem('calculatorTheme', theme);
+        currentTheme = theme;
+    }
+
+    // Toggle theme on button click
+    themeSwitcher.addEventListener('click', function() {
+        playButtonSound();
+        const newTheme = currentTheme === 'arcade' ? 'cyberpunk' : 'arcade';
+        applyTheme(newTheme);
+    });
 
     // Sound effects using Web Audio API
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -191,6 +231,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     e.preventDefault();
                     calculate('add');
                     playButtonSound();
+                }
+                break;
+            case 't':
+            case 'T':
+                if (e.target !== inputA && e.target !== inputB) {
+                    e.preventDefault();
+                    playButtonSound();
+                    const newTheme = currentTheme === 'arcade' ? 'cyberpunk' : 'arcade';
+                    applyTheme(newTheme);
                 }
                 break;
         }
