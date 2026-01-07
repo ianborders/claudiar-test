@@ -1,7 +1,7 @@
 """Tests for calculator module."""
 
 import pytest
-from src.calculator import add, subtract, multiply, divide
+from src.calculator import add, subtract, multiply, divide, power
 
 
 class TestAdd:
@@ -38,3 +38,14 @@ class TestDivide:
     def test_divide_by_zero_raises(self):
         with pytest.raises(ValueError, match="Cannot divide by zero"):
             divide(5, 0)
+
+
+class TestPower:
+    def test_power_positive_numbers(self):
+        assert power(2, 3) == 8
+
+    def test_power_zero_exponent(self):
+        assert power(5, 0) == 1
+
+    def test_power_negative_exponent(self):
+        assert power(2, -1) == 0.5
