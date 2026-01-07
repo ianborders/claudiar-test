@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="arcade">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARCADE CALC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/arcade.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cyberpunk.css') }}">
 </head>
 <body>
     <div class="scanlines"></div>
+    <button id="theme-switcher" class="theme-switcher" title="Switch Theme">
+        <span class="theme-icon">🎮</span>
+        <span class="theme-label">ARCADE</span>
+    </button>
     <div class="arcade-cabinet">
         <div class="cabinet-top">
             <div class="marquee">
-                <h1>ARCADE CALC</h1>
+                <h1 id="calc-title">ARCADE CALC</h1>
                 <div class="marquee-lights">
                     <span class="light"></span>
                     <span class="light"></span>
