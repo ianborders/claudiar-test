@@ -281,6 +281,12 @@
     animation: none;
 }
 
+[data-theme="minimalist"] .credits .made-with-love {
+    margin-top: 15px;
+    color: var(--min-text-secondary);
+    text-shadow: none;
+}
+
 /* Minimalist Error State */
 [data-theme="minimalist"] .error {
     color: var(--min-error) !important;

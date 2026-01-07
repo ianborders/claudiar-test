@@ -527,6 +527,12 @@
     animation: terminalBlink 1s step-end infinite;
 }
 
+[data-theme="matrix"] .credits .made-with-love {
+    margin-top: 15px;
+    color: var(--matrix-green);
+    text-shadow: 0 0 10px var(--matrix-green);
+}
+
 /* Matrix Error State */
 [data-theme="matrix"] .error {
     color: #ff0000 !important;
