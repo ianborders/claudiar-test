@@ -67,6 +67,12 @@ class TestIndex:
         assert 'made with'.encode() in response.data
         assert b'Ian Borders' in response.data
 
+    def test_index_contains_social_link(self, client):
+        response = client.get('/')
+        assert b'social-link' in response.data
+        assert b'@OpenMotus' in response.data
+        assert b'https://x.com/OpenMotus' in response.data
+
 
 class TestCalculateEndpoint:
     def test_add_operation(self, client):

@@ -491,6 +491,43 @@
     box-shadow: 0 0 10px var(--matrix-dark-green);
 }
 
+/* Matrix Social Link */
+[data-theme="matrix"] .social-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+[data-theme="matrix"] .social-link a {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--matrix-green);
+    text-decoration: none;
+    text-shadow:
+        0 0 5px var(--matrix-green),
+        0 0 10px var(--matrix-green),
+        0 0 20px var(--matrix-glow);
+    letter-spacing: 2px;
+    animation: matrixPulse 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+[data-theme="matrix"] .social-link a::before {
+    content: '>> ';
+}
+
+[data-theme="matrix"] .social-link a::after {
+    content: ' <<';
+}
+
+[data-theme="matrix"] .social-link a:hover {
+    color: var(--matrix-bright-green);
+    text-shadow:
+        0 0 10px var(--matrix-bright-green),
+        0 0 20px var(--matrix-bright-green),
+        0 0 40px var(--matrix-glow);
+}
+
 /* Matrix Credits */
 [data-theme="matrix"] .credits {
     color: var(--matrix-dark-green);
