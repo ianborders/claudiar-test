@@ -541,6 +541,29 @@ body {
     text-shadow: 0 0 10px var(--neon-cyan);
 }
 
+/* Logo */
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    background: linear-gradient(180deg, var(--cabinet-color) 0%, var(--cabinet-accent) 100%);
+    border: 3px solid var(--neon-pink);
+    border-radius: 15px;
+    box-shadow:
+        0 0 20px rgba(255, 0, 255, 0.4),
+        0 4px 0 #0a0a1e;
+}
+
+.logo-icon {
+    font-size: 24px;
+    filter: drop-shadow(0 0 10px var(--neon-cyan));
+}
+
 /* Responsive */
 @media (max-width: 500px) {
     .marquee h1 {
@@ -577,5 +600,15 @@ body {
 
     .theme-switcher-label {
         font-size: 6px;
+    }
+
+    .logo {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+    }
+
+    .logo-icon {
+        font-size: 18px;
     }
 }
