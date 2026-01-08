@@ -8,31 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultDisplay = document.getElementById('result');
     const operationButtons = document.querySelectorAll('.op-btn');
     const clearButton = document.getElementById('clear-btn');
-    const themeSwitcher = document.getElementById('theme-switcher');
-    const themeIcon = themeSwitcher.querySelector('.theme-icon');
-    const themeLabel = themeSwitcher.querySelector('.theme-label');
+    const themeButtons = document.querySelectorAll('.theme-btn');
 
-    // Theme configuration
-    const themes = {
-        arcade: {
-            icon: '🎮',
-            label: 'ARCADE'
-        },
-        cyberpunk: {
-            icon: '🌆',
-            label: 'CYBER'
-        },
-        matrix: {
-            icon: '💻',
-            label: 'MATRIX'
-        },
-        minimalist: {
-            icon: '✨',
-            label: 'MODERN'
-        }
-    };
-
-    // Theme cycle order
+    // Theme cycle order (for keyboard navigation)
     const themeOrder = ['arcade', 'cyberpunk', 'matrix', 'minimalist'];
 
     // Get current theme from localStorage or default to arcade
@@ -42,20 +20,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Theme switching function
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        const config = themes[theme];
-        themeIcon.textContent = config.icon;
-        themeLabel.textContent = config.label;
+        // Update active state on buttons
+        themeButtons.forEach(btn => {
+            if (btn.dataset.theme === theme) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
         // Title "Claudear Testing" is kept constant across all themes
         localStorage.setItem('calculatorTheme', theme);
         currentTheme = theme;
     }
 
-    // Toggle theme on button click
-    themeSwitcher.addEventListener('click', function() {
-        playButtonSound();
-        const currentIndex = themeOrder.indexOf(currentTheme);
-        const newTheme = themeOrder[(currentIndex + 1) % themeOrder.length];
-        applyTheme(newTheme);
+    // Add click event to each theme button
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            playButtonSound();
+            const theme = this.dataset.theme;
+            applyTheme(theme);
+        });
     });
 
     // Sound effects using Web Audio API
