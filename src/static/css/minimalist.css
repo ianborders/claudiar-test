@@ -240,6 +240,26 @@
     display: none;
 }
 
+/* Minimalist Social Link */
+[data-theme="minimalist"] .social-link {
+    text-align: center;
+    margin-top: 32px;
+}
+
+[data-theme="minimalist"] .social-link a {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--min-accent);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+[data-theme="minimalist"] .social-link a:hover {
+    color: var(--min-text);
+    text-decoration: underline;
+}
+
 /* Minimalist Credits */
 [data-theme="minimalist"] .credits {
     color: var(--min-text-secondary);
