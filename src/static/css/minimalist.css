@@ -337,6 +337,19 @@
     text-shadow: none;
 }
 
+/* Logo */
+[data-theme="minimalist"] .logo {
+    background: var(--min-surface);
+    border: 1px solid var(--min-border);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--min-shadow);
+}
+
+[data-theme="minimalist"] .logo-icon {
+    font-size: 20px;
+    filter: none;
+}
+
 /* Responsive adjustments for minimalist */
 @media (max-width: 500px) {
     [data-theme="minimalist"] .arcade-cabinet {

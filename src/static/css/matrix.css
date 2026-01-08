@@ -614,6 +614,20 @@
     letter-spacing: 1px;
 }
 
+/* Logo */
+[data-theme="matrix"] .logo {
+    background: var(--matrix-terminal-bg);
+    border: 1px solid var(--matrix-green);
+    border-radius: 0;
+    box-shadow:
+        0 0 20px rgba(0, 255, 65, 0.3),
+        inset 0 0 15px rgba(0, 255, 65, 0.05);
+}
+
+[data-theme="matrix"] .logo-icon {
+    filter: drop-shadow(0 0 8px var(--matrix-green));
+}
+
 /* Responsive adjustments for matrix */
 @media (max-width: 500px) {
     [data-theme="matrix"] .marquee h1 {
