@@ -14,24 +14,10 @@
 </head>
 <body>
     <div class="scanlines"></div>
-    <nav class="theme-nav">
-        <button class="theme-btn active" data-theme="arcade" title="Arcade Theme">
-            <span class="theme-icon">🎮</span>
-            <span class="theme-label">ARCADE</span>
-        </button>
-        <button class="theme-btn" data-theme="cyberpunk" title="Cyberpunk Theme">
-            <span class="theme-icon">🌆</span>
-            <span class="theme-label">CYBER</span>
-        </button>
-        <button class="theme-btn" data-theme="matrix" title="Matrix Theme">
-            <span class="theme-icon">💻</span>
-            <span class="theme-label">MATRIX</span>
-        </button>
-        <button class="theme-btn" data-theme="minimalist" title="Modern Theme">
-            <span class="theme-icon">✨</span>
-            <span class="theme-label">MODERN</span>
-        </button>
-    </nav>
+    <button class="theme-switcher" id="theme-switcher" title="Click to change theme (or press T)">
+        <span class="theme-switcher-icon" id="theme-switcher-icon">🎮</span>
+        <span class="theme-switcher-label" id="theme-switcher-label">ARCADE</span>
+    </button>
     <div class="arcade-cabinet">
         <div class="cabinet-top">
             <div class="marquee">

@@ -31,12 +31,11 @@ class TestIndex:
         assert b'data-op="multiply"' in response.data
         assert b'data-op="divide"' in response.data
 
-    def test_index_contains_theme_nav(self, client):
+    def test_index_contains_theme_switcher(self, client):
         response = client.get('/')
-        assert b'theme-nav' in response.data
-        assert b'theme-btn' in response.data
-        assert b'theme-icon' in response.data
-        assert b'theme-label' in response.data
+        assert b'theme-switcher' in response.data
+        assert b'theme-switcher-icon' in response.data
+        assert b'theme-switcher-label' in response.data
 
     def test_index_has_data_theme_attribute(self, client):
         response = client.get('/')

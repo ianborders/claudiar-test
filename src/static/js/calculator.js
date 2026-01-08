@@ -8,10 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultDisplay = document.getElementById('result');
     const operationButtons = document.querySelectorAll('.op-btn');
     const clearButton = document.getElementById('clear-btn');
-    const themeButtons = document.querySelectorAll('.theme-btn');
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const themeSwitcherIcon = document.getElementById('theme-switcher-icon');
+    const themeSwitcherLabel = document.getElementById('theme-switcher-label');
 
-    // Theme cycle order (for keyboard navigation)
-    const themeOrder = ['arcade', 'cyberpunk', 'matrix', 'minimalist'];
+    // Theme configuration with icons and labels
+    const themes = [
+        { id: 'arcade', icon: '🎮', label: 'ARCADE' },
+        { id: 'cyberpunk', icon: '🌆', label: 'CYBER' },
+        { id: 'matrix', icon: '💻', label: 'MATRIX' },
+        { id: 'minimalist', icon: '✨', label: 'MODERN' }
+    ];
 
     // Get current theme from localStorage or default to arcade
     let currentTheme = localStorage.getItem('calculatorTheme') || 'arcade';
@@ -20,26 +27,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Theme switching function
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        // Update active state on buttons
-        themeButtons.forEach(btn => {
-            if (btn.dataset.theme === theme) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-        // Title "Claudear Testing" is kept constant across all themes
+        // Update the switcher button to show current theme
+        const themeConfig = themes.find(t => t.id === theme);
+        if (themeConfig) {
+            themeSwitcherIcon.textContent = themeConfig.icon;
+            themeSwitcherLabel.textContent = themeConfig.label;
+        }
         localStorage.setItem('calculatorTheme', theme);
         currentTheme = theme;
     }
 
-    // Add click event to each theme button
-    themeButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            playButtonSound();
-            const theme = this.dataset.theme;
-            applyTheme(theme);
-        });
+    // Cycle to the next theme
+    function cycleTheme() {
+        const currentIndex = themes.findIndex(t => t.id === currentTheme);
+        const nextIndex = (currentIndex + 1) % themes.length;
+        applyTheme(themes[nextIndex].id);
+    }
+
+    // Add click event to theme switcher button
+    themeSwitcher.addEventListener('click', function() {
+        playButtonSound();
+        cycleTheme();
     });
 
     // Sound effects using Web Audio API
@@ -226,9 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.target !== inputA && e.target !== inputB) {
                     e.preventDefault();
                     playButtonSound();
-                    const currentIndex = themeOrder.indexOf(currentTheme);
-                    const newTheme = themeOrder[(currentIndex + 1) % themeOrder.length];
-                    applyTheme(newTheme);
+                    cycleTheme();
                 }
                 break;
         }
