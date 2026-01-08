@@ -584,36 +584,42 @@
     100% { filter: brightness(1); }
 }
 
-/* Matrix Theme Switcher */
-[data-theme="matrix"] .theme-switcher {
+/* Matrix Theme Navigation */
+[data-theme="matrix"] .theme-nav {
     font-family: 'Courier New', monospace;
     background: var(--matrix-terminal-bg);
     border: 1px solid var(--matrix-green);
     border-radius: 0;
     box-shadow:
-        0 0 15px rgba(0, 255, 65, 0.3),
-        inset 0 0 10px rgba(0, 255, 65, 0.05);
+        0 0 20px rgba(0, 255, 65, 0.3),
+        inset 0 0 15px rgba(0, 255, 65, 0.05);
 }
 
-[data-theme="matrix"] .theme-switcher:hover {
-    box-shadow:
-        0 0 25px rgba(0, 255, 65, 0.5),
-        inset 0 0 15px rgba(0, 255, 65, 0.1);
-    transform: translateY(-2px);
+[data-theme="matrix"] .theme-btn {
+    font-family: 'Courier New', monospace;
+    border-radius: 0;
+    border: 1px solid transparent;
 }
 
-[data-theme="matrix"] .theme-switcher:active {
-    transform: scale(0.95);
+[data-theme="matrix"] .theme-btn:hover {
+    background: rgba(0, 255, 65, 0.1);
+    border-color: var(--matrix-dark-green);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+[data-theme="matrix"] .theme-btn.active {
+    background: rgba(0, 255, 65, 0.15);
+    border-color: var(--matrix-green);
     box-shadow:
-        0 0 10px rgba(0, 255, 65, 0.3),
-        inset 0 0 10px rgba(0, 255, 65, 0.05);
+        0 0 15px rgba(0, 255, 65, 0.4),
+        inset 0 0 10px rgba(0, 255, 65, 0.1);
 }
 
 [data-theme="matrix"] .theme-label {
     color: var(--matrix-green);
     text-shadow: 0 0 5px var(--matrix-green);
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 /* Responsive adjustments for matrix */
