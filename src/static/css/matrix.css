@@ -628,8 +628,31 @@
     filter: drop-shadow(0 0 8px var(--matrix-green));
 }
 
+/* Page Title */
+[data-theme="matrix"] .page-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--matrix-green);
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 5px var(--matrix-green),
+        0 0 10px var(--matrix-green),
+        0 0 20px var(--matrix-glow);
+    animation: matrixPulse 2s ease-in-out infinite;
+}
+
 /* Responsive adjustments for matrix */
 @media (max-width: 500px) {
+    [data-theme="matrix"] .page-title {
+        font-size: 20px;
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+    }
+
     [data-theme="matrix"] .marquee h1 {
         font-size: 16px;
     }

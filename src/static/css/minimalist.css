@@ -350,8 +350,27 @@
     filter: none;
 }
 
+/* Page Title */
+[data-theme="minimalist"] .page-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--min-text);
+    text-align: center;
+    margin-bottom: 32px;
+    letter-spacing: 4px;
+    text-shadow: none;
+    animation: none;
+}
+
 /* Responsive adjustments for minimalist */
 @media (max-width: 500px) {
+    [data-theme="minimalist"] .page-title {
+        font-size: 20px;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+    }
+
     [data-theme="minimalist"] .arcade-cabinet {
         padding: 24px;
     }
