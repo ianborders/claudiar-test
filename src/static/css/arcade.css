@@ -480,6 +480,12 @@ body {
     text-shadow: 0 0 10px var(--neon-pink);
 }
 
+.credits .powered-by {
+    margin-top: 10px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
 @keyframes textBlink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }

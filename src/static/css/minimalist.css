@@ -284,6 +284,12 @@
     text-shadow: none;
 }
 
+[data-theme="minimalist"] .credits .powered-by {
+    margin-top: 10px;
+    color: var(--min-accent);
+    text-shadow: none;
+}
+
 /* Minimalist Error State */
 [data-theme="minimalist"] .error {
     color: var(--min-error) !important;
