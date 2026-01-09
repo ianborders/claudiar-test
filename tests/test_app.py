@@ -73,6 +73,11 @@ class TestIndex:
         assert b'@OpenMotus' in response.data
         assert b'https://x.com/OpenMotus' in response.data
 
+    def test_index_contains_page_title(self, client):
+        response = client.get('/')
+        assert b'class="page-title"' in response.data
+        assert b'KYBERNESIS' in response.data
+
 
 class TestCalculateEndpoint:
     def test_add_operation(self, client):
