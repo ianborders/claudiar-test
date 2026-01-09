@@ -556,6 +556,12 @@
     text-shadow: 0 0 10px var(--matrix-green);
 }
 
+[data-theme="matrix"] .credits .powered-by {
+    margin-top: 10px;
+    color: var(--matrix-bright-green);
+    text-shadow: 0 0 10px var(--matrix-bright-green);
+}
+
 /* Matrix Error State */
 [data-theme="matrix"] .error {
     color: #ff0000 !important;

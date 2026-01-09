@@ -67,6 +67,11 @@ class TestIndex:
         assert 'made with'.encode() in response.data
         assert b'Ian Borders' in response.data
 
+    def test_index_contains_powered_by_clotion(self, client):
+        response = client.get('/')
+        assert b'powered-by' in response.data
+        assert b'POWERED BY CLOTION' in response.data
+
     def test_index_contains_social_link(self, client):
         response = client.get('/')
         assert b'social-link' in response.data

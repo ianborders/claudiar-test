@@ -574,6 +574,12 @@
     text-shadow: 0 0 10px var(--cyber-pink);
 }
 
+[data-theme="cyberpunk"] .credits .powered-by {
+    margin-top: 10px;
+    color: var(--cyber-cyan);
+    text-shadow: 0 0 10px var(--cyber-cyan);
+}
+
 /* Cyberpunk Error State */
 [data-theme="cyberpunk"] .error {
     color: var(--cyber-yellow) !important;
