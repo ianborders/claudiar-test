@@ -83,6 +83,11 @@ class TestIndex:
         assert b'class="page-title"' in response.data
         assert b'KYBERNESIS' in response.data
 
+    def test_index_contains_page_subtitle(self, client):
+        response = client.get('/')
+        assert b'class="page-subtitle"' in response.data
+        assert b'Now with Notion Support' in response.data
+
 
 class TestCalculateEndpoint:
     def test_add_operation(self, client):
